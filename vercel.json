@@ -2,21 +2,22 @@
   "version": 2,
   "builds": [
     {
-      "src": "composer.json",
+      "src": "api/*.php",
       "use": "@vercel/php",
       "config": {
-        "install": "composer install"
+        "install": "composer install",
+        "runtime": "vercel-php@0.7.3"
+      }
+    },
+    {
+      "src": "templates/*.php",
+      "use": "@vercel/php",
+      "config": {
+        "install": "composer install",
+        "runtime": "vercel-php@0.7.3"
       }
     }
   ],
-  "functions": {
-    "api/*.php": {
-      "runtime": "vercel-php@0.7.3"
-    },
-    "templates/*.php": {
-      "runtime": "vercel-php@0.7.3"
-    }
-  },
   "routes": [
     {
       "src": "/public/(.*)",
