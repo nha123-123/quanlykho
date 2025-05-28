@@ -1,7 +1,19 @@
 {
   "version": 2,
+  "builds": [
+    {
+      "src": "composer.json",
+      "use": "@vercel/php",
+      "config": {
+        "install": "composer install"
+      }
+    }
+  ],
   "functions": {
     "api/*.php": {
+      "runtime": "vercel-php@0.7.3"
+    },
+    "templates/*.php": {
       "runtime": "vercel-php@0.7.3"
     }
   },
@@ -9,6 +21,10 @@
     {
       "src": "/public/(.*)",
       "dest": "/public/$1"
+    },
+    {
+      "src": "/(formdangky|formdangnhap|formketoan|formnhapkho|formquanli|formsua|formsuataikhoan|formthemtaikhoan|formtutailkhoan|formuptaikhoan)(.*)",
+      "dest": "/templates/$1.php"
     },
     {
       "src": "/api/(.*)",
