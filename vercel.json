@@ -3,18 +3,16 @@
   "builds": [
     {
       "src": "api/*.php",
-      "use": "@vercel/php",
+      "use": "vercel-php@0.7.3",
       "config": {
-        "install": "composer install",
-        "runtime": "vercel-php@0.7.3"
+        "install": "composer install"
       }
     },
     {
       "src": "templates/*.php",
-      "use": "@vercel/php",
+      "use": "vercel-php@0.7.3",
       "config": {
-        "install": "composer install",
-        "runtime": "vercel-php@0.7.3"
+        "install": "composer install"
       }
     }
   ],
